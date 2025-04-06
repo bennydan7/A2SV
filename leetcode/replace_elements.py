@@ -9,6 +9,7 @@ def replace_elements(arr):
         arr[i] = max_element
         if temp > max_element:
             max_element = temp
+        print(arr)
     
     return arr
     

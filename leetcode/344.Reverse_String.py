@@ -1,5 +1,5 @@
 class Solution:
-    def reverseString(self, s: List[str]) -> None:
+    def reverseString(self, s: List[str]) -> None: # type: ignore
 
         left,right = 0, len(s)- 1
         while left < right:

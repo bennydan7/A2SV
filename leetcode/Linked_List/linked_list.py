@@ -37,6 +37,21 @@ def insert_at_front(head,new_val):
     new_node.next = head
     return new_node
 
+def insert_at_end(head,new_val):
+    new_node = Node(new_val)
+
+    if head == None:
+        return new_node
+    
+    current = head
+    while current.next:
+        current = current.next
+    current.next = new_node
+
+    return head
+
+
+    
 
 
 def print_list(head):
@@ -74,10 +89,13 @@ def main():
     print_list(head)
 
     # Insert a new node at the front of the list
-    print("After inserting Nodes at the front:", end="")
-    new_val = 1
-    head = insert_at_front(head, new_val)
+    # new_val = 1
+    # head = insert_at_front(head, new_val)
 
+    # inserting at the end
+    head = insert_at_end(head,1)
+
+    print("After inserting Nodes at the end:", end="")
     print_list(head)
    
 if __name__ == "__main__":

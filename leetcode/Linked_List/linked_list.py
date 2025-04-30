@@ -32,6 +32,22 @@ def count_nodes(head):
     return counter
 
 # insertion in a linked
+def insert_at_front(head,new_val):
+    new_node = Node(new_val)
+    new_node.next = head
+    return new_node
+
+
+
+def print_list(head):
+    current = head
+
+    while current != None:
+        print(f"{current.val}", end = " ")
+        current = current.next
+    
+    print()
+
 
 
 def main():
@@ -52,9 +68,18 @@ def main():
     # else:
     #     print("No")
 
-    print("Count of nodes is",count_nodes(head) )
+    # print("Count of nodes is",count_nodes(head) )
+     # Print the original list
+    print("Original Linked List:", end="")
+    print_list(head)
 
+    # Insert a new node at the front of the list
+    print("After inserting Nodes at the front:", end="")
+    new_val = 1
+    head = insert_at_front(head, new_val)
 
+    print_list(head)
+   
 if __name__ == "__main__":
     main()
 

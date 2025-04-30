@@ -51,8 +51,29 @@ def insert_at_end(head,new_val):
     return head
 
 
-    
+def insert_at_a_given_postion(head,pos,val):
 
+    if pos < 1:
+        return head
+    
+    if pos == 1:
+        insert_at_front(head,val)
+        return
+
+    current = head
+    for _ in range(1, pos - 1):
+        if current == None:
+            break
+        current = current.next
+    
+    if current == None:
+        return head
+    
+    new_node = Node(val)
+    new_node.next = current.next
+    current.next = new_node
+
+    return head
 
 def print_list(head):
     current = head
@@ -69,10 +90,10 @@ def main():
 
     # Create a hard-coded linked list:
     # 10 -> 20 -> 30 -> 40
-    head = Node(10)
-    head.next = Node(20)
-    head.next.next = Node(30)
-    head.next.next.next = Node(40)
+    head = Node(3)
+    head.next = Node(5)
+    head.next.next = Node(8)
+    head.next.next.next = Node(10)
 
     # Example of traversing the node and printing
     # traversing(head)
@@ -92,10 +113,13 @@ def main():
     # new_val = 1
     # head = insert_at_front(head, new_val)
 
-    # inserting at the end
-    head = insert_at_end(head,1)
+    # # inserting at the end
+    # head = insert_at_end(head,1)
 
-    print("After inserting Nodes at the end:", end="")
+    # print("After inserting Nodes at the end:", end="")
+    val = 12
+    pos = 3
+    head = insert_at_a_given_postion(head, pos, val)
     print_list(head)
    
 if __name__ == "__main__":

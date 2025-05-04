@@ -15,11 +15,43 @@ class SLinkedList:
             yield node
             node = node.next
     
+    # insert in Linked List
+    def insert_single_linkedlist(self,value,location):
+        new_node = Node(value)
+
+        if self.head == None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            if location == 0:
+                new_node.next = self.head
+                self.head = new_node
+            elif location == 1:
+                new_node.next = None
+                self.tail.next = new_node
+                self.tail = new_node
+            else:
+                temp_node = self.head
+                index = 0
+                while index < location - 1:
+                    temp_node = temp_node.next
+                    index += 1
+                next_node = temp_node.next
+                temp_node.next = new_node
+                new_node.next = next_node
+
+        
+    # def traverse_singly_linkedlist():
+
+    
 
 singlyLinkedList = SLinkedList()
-node1 = Node(1)
-node2 = Node(2)
+singlyLinkedList.insert_single_linkedlist(1,1)
+singlyLinkedList.insert_single_linkedlist(2,1)
+singlyLinkedList.insert_single_linkedlist(3,1)
+singlyLinkedList.insert_single_linkedlist(4,1)
 
-singlyLinkedList.head = node1
-singlyLinkedList.head.next = node2
-singlyLinkedList.tail = node2
+
+singlyLinkedList.insert_single_linkedlist(0,0)
+singlyLinkedList.insert_single_linkedlist(0,3)
+print([node.value for node in singlyLinkedList])

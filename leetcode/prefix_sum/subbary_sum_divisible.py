@@ -1,14 +1,22 @@
 def subarray_sums_divisble(nums,k):
     count = 0
-    dict = {0 : 1}
+    remainder_count = {0 : 1}
 
-    prefix_sum = [0] * len(nums)
-    prefix_sum[0] = nums[0]
-    for i in range(1,len(nums)):
-        prefix_sum[i] = prefix_sum[i - 1] + nums[i]
+    prefix_sum = 0
     
     
-    # for num in nums:
+    for num in nums:
+        prefix_sum += num
+        remainder = prefix_sum % k
+
+        if remainder < 0 :
+            remainder += k
+        
+        count += remainder_count.get(remainder,0)
+
+        remainder_count[remainder] = dict.get(remainder,0) + 1
+
+    return count
 
 
 

@@ -41,7 +41,15 @@ class SLinkedList:
                 new_node.next = next_node
 
         
-    # def traverse_singly_linkedlist():
+    def traverse_singly_linkedlist(self):
+        if self.head == None:
+            print("Linked list doesn't exist")
+        else:
+            node = self.head
+            while node != None:
+                print(node.value)
+                node = node.next
+
 
     
 
@@ -54,4 +62,7 @@ singlyLinkedList.insert_single_linkedlist(4,1)
 
 singlyLinkedList.insert_single_linkedlist(0,0)
 singlyLinkedList.insert_single_linkedlist(0,3)
+
 print([node.value for node in singlyLinkedList])
+
+singlyLinkedList.traverse_singly_linkedlist()

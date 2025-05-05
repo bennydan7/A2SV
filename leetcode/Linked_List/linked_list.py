@@ -75,6 +75,31 @@ def insert_at_a_given_postion(head,pos,val):
 
     return head
 
+def reverse_a_singly(head):
+
+    unmod = head
+    prev = None
+    curr = head
+
+    
+
+    while curr != None:
+        next_node = curr.next
+
+        # reverse current node's pointer
+        curr.next = prev
+
+        # move pointers one position ahead
+        prev = curr
+        curr = next_node
+
+    print(curr)
+    return unmod
+
+
+# def palindromic_linked_list(head):
+    
+
 def print_list(head):
     current = head
 
@@ -86,14 +111,17 @@ def print_list(head):
 
 
 
+
+
 def main():
 
     # Create a hard-coded linked list:
     # 10 -> 20 -> 30 -> 40
-    head = Node(3)
-    head.next = Node(5)
-    head.next.next = Node(8)
-    head.next.next.next = Node(10)
+    head = Node(1)
+    head.next = Node(2)
+    head.next.next = Node(3)
+    head.next.next.next = Node(4)
+    head.next.next.next.next = Node(5)
 
     # Example of traversing the node and printing
     # traversing(head)
@@ -117,10 +145,15 @@ def main():
     # head = insert_at_end(head,1)
 
     # print("After inserting Nodes at the end:", end="")
-    val = 12
-    pos = 3
-    head = insert_at_a_given_postion(head, pos, val)
+    # val = 12
+    # pos = 3
+    # head = insert_at_a_given_postion(head, pos, val)
+    # print_list(head)
+    head = reverse_a_singly(head)
+    
+    print("Reversed Linked List:", end="")
     print_list(head)
+
    
 if __name__ == "__main__":
     main()
